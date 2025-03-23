@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="content">
+    <form id="create" method="POST" action="/" enctype="multipart/form-data">
+      <input type="text" name="ma_sp" placeholder="ID sản phẩm" />
+      <input type="text" name="ten_sp" placeholder="Tên sản phẩm" />
+      <input type="number" name="so_luong" placeholder="Số lượng sản phẩm" />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <form id="delete" method="POST" action="/delete" enctype="multipart/form-data">
+      <div class="title">
+        <h5>Danh sách sản phẩm:</h5>
+        <input type="submit" value="Xoá" />
+      </div>
+      <table border="1">
+        <tr>
+          <th>Mã SP</th>
+          <th>Tên SP</th>
+          <th>Số Lượng</th>
+          <th>Chọn</th>
+        </tr>
+        <% for (let i = 0; i < sanPhams.length; i++) { %>
+          <tr>
+            <td><%= sanPhams[i].ma_sp %></td>
+            <td><%= sanPhams[i].ten_sp %></td>
+            <td><%= sanPhams[i].so_luong %></td>
+            <td><input type="checkbox" name="<%= sanPhams[i].ma_sp %>" /></td>
+          </tr>
+        <% } %>
+      </table>
+    </form>
+  </div>
+</body>
+</html>
