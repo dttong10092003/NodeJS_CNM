@@ -11,6 +11,7 @@
       <input type="text" name="ma_sp" placeholder="ID sản phẩm" />
       <input type="text" name="ten_sp" placeholder="Tên sản phẩm" />
       <input type="number" name="so_luong" placeholder="Số lượng sản phẩm" />
+      <input type="file" name="image" />
       <input type="submit" value="Submit" />
     </form>
 
@@ -24,6 +25,7 @@
           <th>Mã SP</th>
           <th>Tên SP</th>
           <th>Số Lượng</th>
+          <th>Hình ảnh</th>
           <th>Chọn</th>
         </tr>
         <% for (let i = 0; i < sanPhams.length; i++) { %>
@@ -31,6 +33,7 @@
             <td><%= sanPhams[i].ma_sp %></td>
             <td><%= sanPhams[i].ten_sp %></td>
             <td><%= sanPhams[i].so_luong %></td>
+            <td><img width="100px" src="<%= sanPhams[i].image_url %>" /></td>
             <td><input type="checkbox" name="<%= sanPhams[i].ma_sp %>" /></td>
           </tr>
         <% } %>
